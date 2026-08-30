@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Campaign Measurement | Trolley
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/site.css">
+
+</head>
+
+
+<body>
+
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <div class="logo">
+            TROLLEY
+        </div>
+
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"  class="active"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html" 
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+
+
+<main class="main-content">
+
+
+    <a
+        id="backLink"
+        href="#"
+        class="back-link">
+
+        ← Back to Campaign
+
+    </a>
+
+
+    <div class="page-header-row">
+
+        <div>
+
+            <h1 class="page-title">
+                Campaign Measurement
+            </h1>
+
+            <div
+                id="campaignTitle"
+                class="page-subtitle">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Expected Performance -->
+
+    <div class="detail-card">
+
+        <h2>
+            Expected Performance
+        </h2>
+
+        <div class="metric-grid">
+
+            <div class="metric-card">
+
+                <span>
+                    Baseline Sales
+                </span>
+
+                <strong id="expectedBaseline">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    Expected Incremental Sales
+                </span>
+
+                <strong id="expectedIncremental">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    Campaign Cost
+                </span>
+
+                <strong id="campaignCost">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    Expected ROI
+                </span>
+
+                <strong id="expectedROI">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Measurement -->
+
+    <div class="detail-card">
+
+        <h2>
+            Actual Measurement
+        </h2>
+
+
+        <div class="form-grid">
+
+
+            <div class="form-group">
+
+                <label>
+                    Measurement Method *
+                </label>
+
+                <select id="measurementMethod">
+
+                    <option value="">
+                        Select Method
+                    </option>
+
+                    <option value="Control Stores">
+                        Control Stores
+                    </option>
+
+                    <option value="Comparable Prior Period">
+                        Comparable Prior Period
+                    </option>
+
+                    <option value="Matched Control">
+                        Matched Control
+                    </option>
+
+                    <option value="Hybrid">
+                        Hybrid
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Control Reference
+                </label>
+
+                <input
+                    type="text"
+                    id="controlReference"
+                    placeholder="Control stores, period or methodology reference">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Actual Campaign Sales *
+                </label>
+
+                <input
+                    type="number"
+                    id="actualCampaignSales"
+                    step="0.01"
+                    min="0"
+                    oninput="calculateActualResults()">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Control Expected Sales *
+                </label>
+
+                <input
+                    type="number"
+                    id="controlExpectedSales"
+                    step="0.01"
+                    min="0"
+                    oninput="calculateActualResults()">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Actual Incremental Sales
+                </label>
+
+                <input
+                    type="text"
+                    id="actualIncrementalSales"
+                    readonly>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Actual ROI
+                </label>
+
+                <input
+                    type="text"
+                    id="actualROI"
+                    readonly>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+                <label>
+                    Measurement Notes
+                </label>
+
+                <textarea
+                    id="measurementNotes"
+                    rows="5"
+                    placeholder="Explain measurement methodology, observations and exceptions...">
+                </textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="btn-secondary"
+                onclick="goBack()">
+
+                ← Back
+
+            </button>
+
+
+            <button
+                type="button"
+                class="btn-primary"
+                onclick="saveMeasurement()">
+
+                Save Measurement Results
+
+            </button>
+
+            <button
+                type="button"
+                id="closeCampaignButton"
+                class="btn-primary"
+                style="display:none;"
+                onclick="openCloseCampaign()">
+
+                Review & Close Campaign
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/measurement.js?v=1"></script>
+
+</body>
+</html>

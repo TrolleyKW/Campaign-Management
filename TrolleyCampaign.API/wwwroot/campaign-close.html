@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Close Campaign | Trolley
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/site.css">
+
+</head>
+
+<body>
+
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <div class="logo">
+            TROLLEY
+        </div>
+
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"  class="active"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html" 
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+
+
+
+<main class="main-content">
+
+
+    <a
+        id="backLink"
+        class="back-link"
+        href="#">
+
+        ← Back to Measurement
+
+    </a>
+
+
+    <div class="page-header-row">
+
+        <div>
+
+            <h1 class="page-title">
+                Close Campaign
+            </h1>
+
+            <div
+                id="campaignTitle"
+                class="page-subtitle">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Performance Comparison -->
+
+    <div class="detail-card">
+
+        <h2>
+            Expected vs Actual Performance
+        </h2>
+
+
+        <div class="comparison-grid">
+
+
+            <div class="comparison-card">
+
+                <span>
+                    Expected Incremental Sales
+                </span>
+
+                <strong id="expectedIncremental">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-card">
+
+                <span>
+                    Actual Incremental Sales
+                </span>
+
+                <strong id="actualIncremental">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-card">
+
+                <span>
+                    Sales Variance
+                </span>
+
+                <strong id="salesVariance">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-card">
+
+                <span>
+                    Expected ROI
+                </span>
+
+                <strong id="expectedROI">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-card">
+
+                <span>
+                    Actual ROI
+                </span>
+
+                <strong id="actualROI">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-card">
+
+                <span>
+                    ROI Variance
+                </span>
+
+                <strong id="roiVariance">
+                    -
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Learning -->
+
+    <div class="detail-card">
+
+        <h2>
+            Campaign Learning
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                What Worked?
+            </label>
+
+            <textarea
+                id="whatWorked"
+                rows="4"
+                placeholder="What performed well in this campaign?">
+            </textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                What Didn't Work?
+            </label>
+
+            <textarea
+                id="whatDidNotWork"
+                rows="4"
+                placeholder="What should be improved next time?">
+            </textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Would You Run This Campaign Again? *
+            </label>
+
+            <select id="wouldRunAgain">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="true">
+                    Yes
+                </option>
+
+                <option value="false">
+                    No
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Closing Notes
+            </label>
+
+            <textarea
+                id="closingNotes"
+                rows="5"
+                placeholder="Final observations and recommendations...">
+            </textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="btn-secondary"
+                onclick="goBack()">
+
+                ← Back
+
+            </button>
+
+
+            <button
+                type="button"
+                class="btn-primary"
+                onclick="closeCampaign()">
+
+                Close Campaign
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/campaign-close.js?v=1"></script>
+
+</body>
+</html>

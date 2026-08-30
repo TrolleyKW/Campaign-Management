@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Campaign Analytics | Trolley</title>
+
+    <link rel="stylesheet"
+          href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+    
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"  
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html" class="active"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+
+
+<main class="main-content">
+
+    <div class="page-header-row">
+
+        <div>
+
+            <h1 class="page-title">
+                Campaign Analytics
+            </h1>
+
+            <div class="page-subtitle">
+                Campaign lifecycle, ROI and performance insights.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Lifecycle KPIs -->
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card card-blue">
+            <div class="number"
+                 id="totalCampaigns">0</div>
+            <div class="label">
+                Total Campaigns
+            </div>
+        </div>
+
+        <div class="dashboard-card card-orange">
+            <div class="number"
+                 id="pendingApproval">0</div>
+            <div class="label">
+                Pending Approval
+            </div>
+        </div>
+
+        <div class="dashboard-card card-red">
+            <div class="number"
+                 id="rejectedCampaigns">0</div>
+            <div class="label">
+                Rejected
+            </div>
+        </div>
+
+        <div class="dashboard-card card-purple">
+            <div class="number"
+                 id="executionCampaigns">0</div>
+            <div class="label">
+                Execution
+            </div>
+        </div>
+
+        <div class="dashboard-card card-blue">
+            <div class="number"
+                 id="measurementCampaigns">0</div>
+            <div class="label">
+                Measurement
+            </div>
+        </div>
+
+        <div class="dashboard-card card-green">
+            <div class="number"
+                 id="closedCampaigns">0</div>
+            <div class="label">
+                Closed
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ROI -->
+
+    <div class="detail-card">
+
+        <h2>ROI Performance</h2>
+
+        <div class="metric-grid analytics-roi-grid">
+
+            <div class="metric-card">
+                <span>
+                    Average Expected ROI
+                </span>
+
+                <strong id="averageExpectedROI">
+                    -
+                </strong>
+            </div>
+
+
+            <div class="metric-card">
+                <span>
+                    Average Actual ROI
+                </span>
+
+                <strong id="averageActualROI">
+                    -
+                </strong>
+            </div>
+
+
+            <div class="metric-card">
+                <span>
+                    Average ROI Variance
+                </span>
+
+                <strong id="averageROIVariance">
+                    -
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Visual Analytics -->
+
+    <div class="analytics-chart-grid">
+
+        <div class="detail-card">
+
+            <h2>
+                Campaign Lifecycle
+            </h2>
+
+            <div
+                id="lifecycleChart"
+                class="bar-chart">
+            </div>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h2>
+                Campaigns by Objective
+            </h2>
+
+            <div
+                id="objectiveChart"
+                class="bar-chart">
+            </div>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h2>
+                Campaigns by Channel
+            </h2>
+
+            <div
+                id="channelChart"
+                class="bar-chart">
+            </div>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h2>
+                Expected vs Actual ROI
+            </h2>
+
+            <div
+                id="roiChart"
+                class="roi-chart">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Objective / Channel -->
+
+    <div class="analytics-two-column">
+
+
+        <div class="detail-card">
+
+            <h2>
+                Performance by Objective
+            </h2>
+
+            <table class="campaign-table">
+
+                <thead>
+                <tr>
+                    <th>Objective</th>
+                    <th>Campaigns</th>
+                    <th>Expected ROI</th>
+                    <th>Actual ROI</th>
+                </tr>
+                </thead>
+
+                <tbody id="objectiveBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h2>
+                Performance by Channel
+            </h2>
+
+            <table class="campaign-table">
+
+                <thead>
+                <tr>
+                    <th>Channel</th>
+                    <th>Campaigns</th>
+                    <th>Expected ROI</th>
+                    <th>Actual ROI</th>
+                </tr>
+                </thead>
+
+                <tbody id="channelBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- Campaign Performance -->
+
+    <div class="detail-card">
+
+        <h2>
+            Expected vs Actual Campaign Performance
+        </h2>
+
+        <div class="table-container">
+
+            <table class="campaign-table">
+
+                <thead>
+
+                <tr>
+                    <th>Campaign</th>
+                    <th>Objective</th>
+                    <th>Channel</th>
+                    <th>Expected Incremental</th>
+                    <th>Actual Incremental</th>
+                    <th>Expected ROI</th>
+                    <th>Actual ROI</th>
+                    <th>Variance</th>
+                    <th>Run Again?</th>
+                </tr>
+
+                </thead>
+
+                <tbody id="performanceBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/analytics.js?v=2"></script>
+
+</body>
+</html>

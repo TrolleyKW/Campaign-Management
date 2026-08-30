@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trolley Campaign Management</title>
+
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+        <div class="header-title">Campaign Submission & Approval Platform</div>
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+    
+    <nav class="sidebar">
+
+    <a href="index.html" class="active">
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+ 
+	
+
+    <main class="main-content">
+
+    <div class="page-header-row">
+
+        <div>
+            <h1 class="page-title">Welcome, Mina</h1>
+            <div class="page-subtitle">
+                Here's what's happening with your campaigns.
+            </div>
+        </div>
+
+	<button
+	    class="btn-primary"
+	    onclick="window.location.href='new-campaign.html'">
+	    + New Campaign
+	</button>
+
+
+    </div>
+
+    <div class="dashboard-cards">
+
+    <div class="dashboard-card card-blue">
+
+        <div
+            class="number"
+            id="totalCampaigns">
+            0
+        </div>
+
+        <div class="label">
+            Total Campaigns
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-card card-orange">
+
+        <div
+            class="number"
+            id="pendingApprovals">
+            0
+        </div>
+
+        <div class="label">
+            Pending Approval
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-card card-green">
+
+        <div
+            class="number"
+            id="approvedCampaigns">
+            0
+        </div>
+
+        <div class="label">
+            Approved
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-card card-purple">
+
+        <div
+            class="number"
+            id="activeCampaigns">
+            0
+        </div>
+
+        <div class="label">
+            Active Campaigns
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-card card-red">
+
+        <div
+            class="number"
+            id="rejectedCampaigns">
+            0
+        </div>
+
+        <div class="label">
+            Rejected
+        </div>
+
+    </div>
+
+</div>
+
+<div class="table-container">
+
+    <div class="table-title">
+        Recent Campaigns
+    </div>
+
+
+    <table class="campaign-table">
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Campaign Code
+                </th>
+
+                <th>
+                    Campaign Name
+                </th>
+
+                <th>
+                    Objective
+                </th>
+
+                <th>
+                    Channel
+                </th>
+
+                <th>
+                    Start Date
+                </th>
+
+                <th>
+                    Status
+                </th>
+
+                <th>
+                    Action
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="recentCampaignBody">
+        </tbody>
+
+    </table>
+
+
+    <div
+        id="noRecentCampaigns"
+        class="empty-message"
+        style="display:none;">
+
+        No campaigns found.
+
+    </div>
+
+</div>
+
+</main>
+
+</div>
+<script src="js/auth.js?v=2"></script>
+<script src="js/dashboard.js?v=1"></script>
+
+</body>
+</html>

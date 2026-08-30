@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Campaigns | Trolley</title>
+
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+ 
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  class="active"
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+ 
+
+    <main class="main-content">
+
+        <div class="page-header-row">
+
+            <div>
+                <h1 class="page-title">
+                    My Campaigns
+                </h1>
+
+                <div class="page-subtitle">
+                    View and track submitted marketing campaigns.
+                </div>
+            </div>
+
+
+            <button
+                class="btn-primary"
+                onclick="window.location.href='new-campaign.html'">
+
+                + New Campaign
+
+            </button>
+
+        </div>
+
+
+        <!-- Filters -->
+        <div class="campaign-filter-bar">
+
+            <div class="form-group">
+
+                <label>Search</label>
+
+                <input
+                    type="text"
+                    id="campaignSearch"
+                    placeholder="Campaign code or name..."
+                    oninput="filterCampaigns()">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Status</label>
+
+                <select
+                    id="statusFilter"
+                    onchange="filterCampaigns()">
+
+                    <option value="">
+                        All Statuses
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Objective</label>
+
+                <select
+                    id="objectiveFilter"
+                    onchange="filterCampaigns()">
+
+                    <option value="">
+                        All Objectives
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Campaign Table -->
+        <div class="table-container">
+
+            <div class="table-title">
+                Campaign Portfolio
+            </div>
+
+
+            <table class="campaign-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Campaign Code</th>
+
+                        <th>Campaign Name</th>
+
+                        <th>Objective</th>
+
+                        <th>Channel</th>
+
+                        <th>Start Date</th>
+
+                        <th>End Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="campaignTableBody">
+
+                </tbody>
+
+            </table>
+
+
+            <div
+                id="noCampaignMessage"
+                class="empty-message"
+                style="display:none;">
+
+                No campaigns found.
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/my-campaigns.js?v=4"></script>
+
+</body>
+</html>

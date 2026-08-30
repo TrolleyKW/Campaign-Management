@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Administration | Trolley
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/site.css">
+
+</head>
+
+
+<body>
+
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <div class="logo">
+            TROLLEY
+        </div>
+
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+
+    </div>
+
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"  
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html" 
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html" class="active"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+
+
+
+<main class="main-content">
+
+
+    <div class="page-header-row">
+
+        <div>
+
+            <h1 class="page-title">
+                Administration
+            </h1>
+
+            <div class="page-subtitle">
+                Manage Campaign Platform configuration and access.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Security -->
+
+    <div class="detail-card">
+
+        <h2>
+            Active Directory Access
+        </h2>
+
+
+        <div class="detail-grid">
+
+            <div>
+
+                <label>
+                    Logged-in Account
+                </label>
+
+                <strong id="adminUserName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Administrator
+                </label>
+
+                <strong id="adminRole">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Manager
+                </label>
+
+                <strong id="managerRole">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Director
+                </label>
+
+                <strong id="directorRole">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Channels -->
+
+    <div class="detail-card">
+
+        <h2>
+            Campaign Channels
+        </h2>
+
+
+        <div class="admin-add-row">
+
+            <input
+                type="text"
+                id="newChannel"
+                placeholder="New Channel">
+
+            <button
+                class="btn-primary"
+                onclick="addChannel()">
+
+                + Add Channel
+
+            </button>
+
+        </div>
+
+
+        <table class="campaign-table">
+
+            <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Channel</th>
+                <th>Action</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="channelAdminBody">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- Target Segments -->
+
+    <div class="detail-card">
+
+        <h2>
+            Target Segments
+        </h2>
+
+
+        <div class="admin-add-row">
+
+            <input
+                type="text"
+                id="newSegment"
+                placeholder="New Target Segment">
+
+            <button
+                class="btn-primary"
+                onclick="addSegment()">
+
+                + Add Segment
+
+            </button>
+
+        </div>
+
+
+        <table class="campaign-table">
+
+            <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Target Segment</th>
+                <th>Action</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="segmentAdminBody">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- Dependencies -->
+
+    <div class="detail-card">
+
+        <h2>
+            Campaign Dependencies
+        </h2>
+
+
+        <div class="admin-add-row">
+
+            <input
+                type="text"
+                id="newDependency"
+                placeholder="New Dependency">
+
+            <button
+                class="btn-primary"
+                onclick="addDependency()">
+
+                + Add Dependency
+
+            </button>
+
+        </div>
+
+
+        <table class="campaign-table">
+
+            <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Dependency</th>
+                <th>Action</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="dependencyAdminBody">
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- User Access Management -->
+
+    <div class="detail-card">
+
+        <h2>User Access Management</h2>
+
+        <p class="page-subtitle">
+            Add Windows / Domain users and assign application permissions.
+        </p>
+
+
+        <!-- Add User -->
+
+        <div class="admin-user-form">
+
+            <div class="form-group">
+                <label>Windows / Domain Account *</label>
+
+                <input
+                    type="text"
+                    id="newWindowsUserName"
+                    placeholder="Example: TROLLEY\m.george">
+            </div>
+
+
+            <div class="form-group">
+                <label>Display Name</label>
+
+                <input
+                    type="text"
+                    id="newDisplayName"
+                    placeholder="Example: Mina George">
+            </div>
+
+        </div>
+
+
+        <div class="admin-role-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="newIsCampaignUser"
+                    checked>
+
+                Campaign User
+            </label>
+
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="newIsManager">
+
+                Manager
+            </label>
+
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="newIsDirector">
+
+                Director
+            </label>
+
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="newIsDataScience">
+
+                Data Science
+            </label>
+
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="newIsAdmin">
+
+                Administrator
+            </label>
+
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="newIsActive"
+                    checked>
+
+                Active
+            </label>
+
+        </div>
+
+
+        <div class="admin-user-actions">
+
+            <button
+                type="button"
+                class="btn-primary"
+                onclick="addUser()">
+
+                + Add User
+
+            </button>
+
+        </div>
+
+
+        <!-- Existing Users -->
+
+        <div class="table-container admin-user-table">
+
+            <table class="campaign-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Windows Account</th>
+                        <th>Display Name</th>
+                        <th>User</th>
+                        <th>Manager</th>
+                        <th>Director</th>
+                        <th>Data Science</th>
+                        <th>Admin</th>
+                        <th>Active</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="usersAdminBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Workflow Status -->
+
+    <div class="detail-card">
+
+        <h2>
+            Workflow Statuses
+        </h2>
+
+        <p class="admin-warning">
+            Workflow statuses are read-only because their IDs
+            control the campaign lifecycle.
+        </p>
+
+
+        <table class="campaign-table">
+
+            <thead>
+
+            <tr>
+                <th>Status ID</th>
+                <th>Status</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="statusAdminBody">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</main>
+
+</div>
+
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/administration.js?v=2"></script>
+
+</body>
+</html>

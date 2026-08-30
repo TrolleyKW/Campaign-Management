@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Store Selection | Trolley</title>
+
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+        <div class="header-title">Campaign Submission & Approval Platform</div>
+    </div>
+
+    <div class="user-info">Loading...</div>
+
+</header>
+
+
+<div class="app-layout">
+
+    
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html" class="active"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+ 
+
+
+    <main class="main-content">
+
+        <div class="page-header-row">
+
+            <div>
+                <h1 class="page-title">New Campaign</h1>
+
+                <div class="page-subtitle">
+                    Select the stores included in this campaign.
+                </div>
+            </div>
+
+            <div class="step-number">
+                Step 4 of 6
+            </div>
+
+        </div>
+
+
+<div class="wizard">
+
+    <div class="wizard-step">
+        <div class="wizard-circle">1</div>
+        <span>Campaign Details</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">2</div>
+        <span>Business Case</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">3</div>
+        <span>Targeting</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step active">
+        <div class="wizard-circle">4</div>
+        <span>Stores</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">5</div>
+        <span>Schedule & Dependencies</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">6</div>
+        <span>Review & Submit</span>
+    </div>
+
+</div>
+
+
+        <div class="form-card">
+
+            <h2>Select Campaign Stores</h2>
+
+
+            <!-- Filters -->
+            <div class="store-filters">
+
+                <div class="form-group">
+
+                    <label>Country</label>
+
+                    <select id="countryFilter" onchange="filterStores()">
+                        <option value="">All Countries</option>
+                    </select>
+
+                </div>
+
+
+         
+
+                <div class="form-group">
+
+                    <label>Search Store</label>
+
+                    <input
+                        type="text"
+                        id="storeSearch"
+                        placeholder="Store name or code..."
+                        oninput="filterStores()">
+
+                </div>
+
+
+                <div class="filter-button-area">
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="selectAllFiltered()">
+
+                        Select All Filtered
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Store Area -->
+            <div class="store-selection-layout">
+
+
+                <!-- Store Table -->
+                <div class="store-table-container">
+
+                    <table class="campaign-table">
+
+                        <thead>
+
+                            <tr>
+                                <th></th>
+                                <th>Store Code</th>
+                                <th>Store Name</th>
+                                <th>Country</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="storeTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Selected Stores -->
+                <div class="selected-store-panel">
+
+                    <h3>Selected Stores</h3>
+
+                    <div class="selected-count"
+                         id="selectedStoreCount">
+
+                        0
+
+                    </div>
+
+                    <div class="selected-count-label">
+                        Stores Selected
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        onclick="clearSelectedStores()">
+
+                        Clear Selection
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="btn-secondary"
+                    onclick="window.location.href='targeting.html'">
+
+                    ← Back
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn-primary"
+                    onclick="goNext()">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/stores.js"></script>
+
+</body>
+</html>

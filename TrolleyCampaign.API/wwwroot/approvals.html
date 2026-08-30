@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Approvals | Trolley</title>
+
+    <link rel="stylesheet"
+          href="css/site.css">
+
+</head>
+
+<body>
+
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <div class="logo">
+            TROLLEY
+        </div>
+
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+   
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html" class="active"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+
+
+    <main class="main-content">
+
+
+        <div class="page-header-row">
+
+            <div>
+
+                <h1 class="page-title">
+                    Campaign Approvals
+                </h1>
+
+                <div class="page-subtitle">
+                    Review campaigns currently waiting for approval.
+                </div>
+
+            </div>
+
+
+            <div class="approval-count-card">
+
+                <span>
+                    Pending
+                </span>
+
+                <strong id="pendingCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- Filters -->
+
+        <div class="campaign-filter-bar">
+
+            <div class="form-group">
+
+                <label>
+                    Search
+                </label>
+
+                <input
+                    type="text"
+                    id="approvalSearch"
+                    placeholder="Campaign code, name or owner..."
+                    oninput="filterApprovals()">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Objective
+                </label>
+
+                <select
+                    id="objectiveFilter"
+                    onchange="filterApprovals()">
+
+                    <option value="">
+                        All Objectives
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Channel
+                </label>
+
+                <select
+                    id="channelFilter"
+                    onchange="filterApprovals()">
+
+                    <option value="">
+                        All Channels
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <div class="table-title">
+                Pending Approval Queue
+            </div>
+
+
+            <table class="campaign-table">
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        Campaign
+                    </th>
+
+                    <th>
+                        Owner
+                    </th>
+
+                    <th>
+                        Objective
+                    </th>
+
+                    <th>
+                        Channel
+                    </th>
+
+                    <th>
+                        Campaign Period
+                    </th>
+
+                    <th>
+                        Cost
+                    </th>
+
+                    <th>
+                        Expected ROI
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="approvalTableBody">
+                </tbody>
+
+            </table>
+
+
+            <div
+                id="noApprovalMessage"
+                class="empty-message"
+                style="display:none;">
+
+                No campaigns are waiting for approval.
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/approvals.js?v=1"></script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+# ==============================
+# Visual Studio / .NET
+# ==============================
+.vs/
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+
+# ==============================
+# User-specific files
+# ==============================
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ==============================
+# VS Code
+# ==============================
+.vscode/
+
+# ==============================
+# Build / publish output
+# ==============================
+publish/
+artifacts/
+TestResults/
+
+# ==============================
+# Logs
+# ==============================
+*.log
+logs/
+
+# ==============================
+# Local / sensitive configuration
+# ==============================
+.env
+.env.*
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# ==============================
+# Certificates / secrets
+# ==============================
+*.pfx
+*.p12
+*.key
+*.pem
+
+# ==============================
+# Temporary files
+# ==============================
+*.tmp
+*.temp
+*.bak
+*.swp
+~$*
+
+# ==============================
+# OS files
+# ==============================
+Thumbs.db
+Desktop.ini
+.DS_Store

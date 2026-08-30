@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Review Campaign | Trolley</title>
+
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+        <div class="header-title">Campaign Submission & Approval Platform</div>
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+   
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html" class="active"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+ 
+
+
+    <main class="main-content">
+
+        <div class="page-header-row">
+
+            <div>
+                <h1 class="page-title">
+                    Review Campaign
+                </h1>
+
+                <div class="page-subtitle">
+                    Review all campaign information before submission.
+                </div>
+            </div>
+
+            <div class="step-number">
+                Step 6 of 6
+            </div>
+
+        </div>
+
+
+        <!-- Wizard -->
+        <div class="wizard">
+
+            <div class="wizard-step">
+                <div class="wizard-circle">1</div>
+                <span>Campaign Details</span>
+            </div>
+
+            <div class="wizard-line"></div>
+
+            <div class="wizard-step">
+                <div class="wizard-circle">2</div>
+                <span>Business Case</span>
+            </div>
+
+            <div class="wizard-line"></div>
+
+            <div class="wizard-step">
+                <div class="wizard-circle">3</div>
+                <span>Targeting</span>
+            </div>
+
+            <div class="wizard-line"></div>
+
+            <div class="wizard-step">
+                <div class="wizard-circle">4</div>
+                <span>Stores</span>
+            </div>
+
+            <div class="wizard-line"></div>
+
+            <div class="wizard-step">
+                <div class="wizard-circle">5</div>
+                <span>Schedule & Dependencies</span>
+            </div>
+
+            <div class="wizard-line"></div>
+
+            <div class="wizard-step active">
+                <div class="wizard-circle">6</div>
+                <span>Review & Submit</span>
+            </div>
+
+        </div>
+
+
+        <!-- Review -->
+        <div class="review-grid">
+
+
+            <!-- Campaign -->
+            <div class="review-card">
+
+                <div class="review-card-title">
+                    Campaign Details
+                </div>
+
+                <div class="review-row">
+                    <span>Campaign Code</span>
+                    <strong>Auto Generated</strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Campaign Name</span>
+                    <strong id="reviewCampaignName"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Owner</span>
+                    <strong id="reviewOwner"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Objective</span>
+                    <strong id="reviewObjective"></strong>
+                </div>
+
+                <div class="review-description">
+
+                    <span>Campaign Brief</span>
+
+                    <p id="reviewCampaignBrief"></p>
+
+                </div>
+
+                <button
+                    class="review-edit"
+                    onclick="window.location.href='new-campaign.html'">
+
+                    Edit Campaign Details
+
+                </button>
+
+            </div>
+
+
+            <!-- Business -->
+            <div class="review-card">
+
+                <div class="review-card-title">
+                    Business Case
+                </div>
+
+                <div class="review-row">
+                    <span>Baseline Sales</span>
+                    <strong id="reviewBaseline"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Expected Uplift</span>
+                    <strong id="reviewUplift"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Incremental Sales</span>
+                    <strong id="reviewIncremental"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Campaign Cost</span>
+                    <strong id="reviewCost"></strong>
+                </div>
+
+                <div class="review-row highlight-row">
+                    <span>Expected ROI</span>
+                    <strong id="reviewROI"></strong>
+                </div>
+
+                <button
+                    class="review-edit"
+                    onclick="window.location.href='business-case.html'">
+
+                    Edit Business Case
+
+                </button>
+
+            </div>
+
+
+            <!-- Targeting -->
+            <div class="review-card">
+
+                <div class="review-card-title">
+                    Targeting
+                </div>
+
+                <div class="review-description">
+
+                    <span>Target Segments</span>
+
+                    <div
+                        id="reviewSegments"
+                        class="review-tags">
+                    </div>
+
+                </div>
+
+                <div class="review-row">
+                    <span>Channel</span>
+                    <strong id="reviewChannel"></strong>
+                </div>
+
+                <button
+                    class="review-edit"
+                    onclick="window.location.href='targeting.html'">
+
+                    Edit Targeting
+
+                </button>
+
+            </div>
+
+
+            <!-- Stores -->
+            <div class="review-card">
+
+                <div class="review-card-title">
+                    Campaign Stores
+                </div>
+
+                <div class="store-review-count">
+
+                    <span id="reviewStoreCount">0</span>
+
+                    <small>
+                        Stores Selected
+                    </small>
+
+                </div>
+
+                <div
+                    id="reviewStores"
+                    class="review-store-list">
+                </div>
+
+                <button
+                    class="review-edit"
+                    onclick="window.location.href='stores.html'">
+
+                    Edit Stores
+
+                </button>
+
+            </div>
+
+
+            <!-- Schedule -->
+            <div class="review-card">
+
+                <div class="review-card-title">
+                    Schedule
+                </div>
+
+                <div class="review-row">
+                    <span>Start Date</span>
+                    <strong id="reviewStartDate"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>End Date</span>
+                    <strong id="reviewEndDate"></strong>
+                </div>
+
+                <div class="review-row">
+                    <span>Duration</span>
+                    <strong id="reviewDuration"></strong>
+                </div>
+
+                <button
+                    class="review-edit"
+                    onclick="window.location.href='schedule.html'">
+
+                    Edit Schedule
+
+                </button>
+
+            </div>
+
+
+            <!-- Dependencies -->
+            <div class="review-card">
+
+                <div class="review-card-title">
+                    Dependencies
+                </div>
+
+                <div
+                    id="reviewDependencies"
+                    class="review-tags">
+                </div>
+
+                <button
+                    class="review-edit"
+                    onclick="window.location.href='schedule.html'">
+
+                    Edit Dependencies
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Confirmation -->
+        <div class="submission-confirmation">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="confirmCampaign">
+
+                I confirm that the campaign information above is correct.
+
+            </label>
+
+        </div>
+
+
+        <!-- Actions -->
+        <div class="review-actions">
+
+            <button
+                class="btn-secondary"
+                onclick="window.location.href='schedule.html'">
+
+                ← Back
+
+            </button>
+
+
+            <div>
+
+                <button
+                    class="btn-secondary"
+                    onclick="saveDraft()">
+
+                    Save Draft
+
+                </button>
+
+
+                <button
+                    class="btn-primary"
+                    onclick="submitCampaign()">
+
+                    Submit Campaign
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/review.js?v=3"></script>
+
+</body>
+</html>

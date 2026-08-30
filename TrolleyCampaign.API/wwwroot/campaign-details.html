@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Campaign Details | Trolley</title>
+
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+
+        <div class="header-title">
+            Campaign Submission & Approval Platform
+        </div>
+    </div>
+
+    <div class="user-info">
+        Loading...
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"  class="active"
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+
+
+    <main class="main-content">
+
+        <div class="page-header-row">
+
+            <div>
+
+                <a href="my-campaigns.html"
+                   class="back-link">
+                    ← Back to My Campaigns
+                </a>
+
+                <h1 id="campaignName"
+                    class="page-title">
+                    Campaign
+                </h1>
+
+                <div id="campaignCode"
+                     class="page-subtitle">
+                </div>
+
+            </div>
+
+            <div id="campaignStatus">
+            </div>
+
+        </div>
+
+
+        <!-- Campaign Details -->
+        <div class="detail-card">
+
+            <h2>Campaign Details</h2>
+
+            <div class="detail-grid">
+
+                <div>
+                    <label>Owner</label>
+                    <div id="owner">-</div>
+                </div>
+
+                <div>
+                    <label>Objective</label>
+                    <div id="objective">-</div>
+                </div>
+
+                <div>
+                    <label>Channel</label>
+                    <div id="channel">-</div>
+                </div>
+
+                <div>
+                    <label>Campaign Period</label>
+                    <div id="campaignPeriod">-</div>
+                </div>
+
+            </div>
+
+
+            <div class="detail-section">
+
+                <label>Campaign Brief</label>
+
+                <div id="campaignBrief">
+                    -
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Business Case -->
+        <div class="detail-card">
+
+            <h2>Business Case</h2>
+
+            <div class="metric-grid">
+
+                <div class="metric-card">
+                    <span>Baseline Sales</span>
+                    <strong id="baselineSales">-</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Expected Uplift</span>
+                    <strong id="upliftPct">-</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Incremental Sales</span>
+                    <strong id="incrementalSales">-</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Campaign Cost</span>
+                    <strong id="campaignCost">-</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Expected ROI</span>
+                    <strong id="expectedROI">-</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Targeting -->
+        <div class="detail-card">
+
+            <h2>Target Segments</h2>
+
+            <div id="targetSegments"
+                 class="tag-list">
+            </div>
+
+        </div>
+
+
+        <!-- Stores -->
+        <div class="detail-card">
+
+            <h2>
+                Selected Stores
+                <span id="storeCount"></span>
+            </h2>
+
+            <div class="table-container">
+
+                <table class="campaign-table">
+
+                    <thead>
+                    <tr>
+                        <th>Store ID</th>
+                        <th>Store</th>
+                        <th>Country</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="storesBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dependencies -->
+        <div class="detail-card">
+
+            <h2>Dependencies</h2>
+
+            <div id="dependencies"
+                 class="tag-list">
+            </div>
+
+        </div>
+
+
+        <!-- Approval History -->
+        <div class="detail-card">
+
+            <h2>Approval History</h2>
+
+            <div id="approvalHistory"
+                 class="approval-timeline">
+            </div>
+
+        </div>
+
+
+
+
+        <div
+            id="approvalPanel"
+            class="detail-card"
+            style="display:none;">
+
+            <h2>
+                Approval Decision
+            </h2>
+
+
+            <div class="form-group">
+
+                <label>
+                    Comment / Reason
+                </label>
+
+                <textarea
+                    id="decisionReason"
+                    rows="4"
+                    placeholder="Enter approval comment or rejection reason...">
+                </textarea>
+
+            </div>
+
+
+            <div class="approval-actions">
+
+                <button
+                    type="button"
+                    class="approval-btn btn-reject"
+                    onclick="submitDecision('reject')">
+                    Reject
+                </button>
+
+                <button
+                    type="button"
+                    class="approval-btn btn-approve"
+                    onclick="submitDecision('approve')">
+                    Approve
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div
+            id="executionPanel"
+            class="detail-card"
+            style="display:none;">
+
+            <h2>
+                Campaign Execution
+            </h2>
+
+            <p>
+                The campaign execution period has finished.
+                The campaign can now move to Measurement.
+            </p>
+
+            <button
+                type="button"
+                class="btn-primary"
+                onclick="startMeasurement()">
+
+                Start Measurement
+
+            </button>
+
+        </div>
+
+
+
+        <div
+            id="measurementPanel"
+            class="detail-card"
+            style="display:none;">
+
+            <h2>Campaign Measurement</h2>
+
+            <p>
+                This campaign is ready for actual performance measurement.
+            </p>
+
+            <button
+                type="button"
+                class="btn-primary"
+                onclick="openMeasurement()">
+
+                Enter Measurement Results
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+<script src="js/auth.js?v=2"></script>
+<script src="js/campaign-details.js?v=4"></script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Case | Trolley</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+<header class="top-header">
+    <div class="header-left">
+        <div class="logo">TROLLEY</div>
+        <div class="header-title">Campaign Submission & Approval Platform</div>
+    </div>
+
+    <div class="user-info">Loading...</div>
+</header>
+
+<div class="app-layout">
+
+
+    <nav class="sidebar">
+
+    <a href="index.html" >
+        🏠 Home
+    </a>
+
+
+    <a
+        href="new-campaign.html" class="active"
+        data-role="campaignUser">
+
+        ＋ New Campaign
+
+    </a>
+
+
+    <a
+        href="my-campaigns.html"
+        data-role="campaignUser">
+
+        📋 My Campaigns
+
+    </a>
+
+
+    <a
+        href="approvals.html"
+        data-role="approval">
+
+        ✅ Approvals
+
+    </a>
+
+
+    <a
+        href="analytics.html"
+        data-role="dataScience">
+
+        📊 Analytics
+
+    </a>
+
+
+    <a
+        href="administration.html"
+        data-role="admin">
+
+        ⚙ Administration
+
+    </a>
+
+</nav>
+ 
+    <main class="main-content">
+
+        <div class="page-header-row">
+            <div>
+                <h1 class="page-title">New Campaign</h1>
+                <div class="page-subtitle">
+                    Define the expected financial impact.
+                </div>
+            </div>
+
+            <div class="step-number">Step 2 of 6</div>
+        </div>
+
+
+ <div class="wizard">
+
+    <div class="wizard-step">
+        <div class="wizard-circle">1</div>
+        <span>Campaign Details</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step active">
+        <div class="wizard-circle">2</div>
+        <span>Business Case</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">3</div>
+        <span>Targeting</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">4</div>
+        <span>Stores</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">5</div>
+        <span>Schedule & Dependencies</span>
+    </div>
+
+    <div class="wizard-line"></div>
+
+    <div class="wizard-step">
+        <div class="wizard-circle">6</div>
+        <span>Review & Submit</span>
+    </div>
+
+</div>
+
+
+        <div class="form-card">
+
+            <h2>Business Case</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>
+                        Expected Baseline Sales <span>*</span>
+                    </label>
+
+                    <input
+                        id="baselineSales"
+                        type="number"
+                        min="0"
+                        placeholder="Example: 250000"
+                        oninput="calculateBusinessCase()">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Expected Uplift % <span>*</span>
+                    </label>
+
+                    <input
+                        id="upliftPct"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 12"
+                        oninput="calculateBusinessCase()">
+                </div>
+
+
+                <div class="form-group">
+                    <label>Expected Incremental Sales</label>
+
+                    <input
+                        id="incrementalSales"
+                        type="text"
+                        readonly>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Campaign Cost <span>*</span>
+                    </label>
+
+                    <input
+                        id="campaignCost"
+                        type="number"
+                        min="0"
+                        placeholder="Example: 10000"
+                        oninput="calculateBusinessCase()">
+                </div>
+
+
+                <div class="form-group">
+                    <label>Expected ROI</label>
+
+                    <input
+                        id="expectedROI"
+                        type="text"
+                        readonly>
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="btn-secondary"
+                    onclick="window.location.href='new-campaign.html'">
+                    ← Back
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-primary"
+                    onclick="goNext()">
+                    Next →
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/auth.js?v=2"></script>
+<script src="js/business-case.js"></script>
+
+</body>
+</html>
